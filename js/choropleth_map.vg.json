@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "EPL Nationality Count by Country",
+  "title": "Count of Nationalities by Country",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
@@ -24,20 +24,21 @@
       "groupby": ["properties.NAME", "Nationality"]
     },
     {
-      "joinaggregate": [{"op": "max", "field": "Count", "as": "MaxCount"}],
+      "aggregate": [{"op": "sum", "field": "Count", "as": "TotalCount"}],
       "groupby": ["properties.NAME"]
     }
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "MaxCount",
+      "field": "TotalCount",
       "type": "quantitative",
-      "scale": {"type": "log"}
+      "scale": {"type": "linear", "scheme": "viridis"},
+      "title": "Total Count of Nationalities"
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "MaxCount", "type": "quantitative", "title": "Count"}
+      {"field": "TotalCount", "type": "quantitative", "title": "Total Count of Nationalities"}
     ]
   }
 }
