@@ -21,10 +21,6 @@
     },
     {
       "aggregate": [{"op": "count", "as": "Count"}],
-      "groupby": ["properties.NAME", "Nationality"]
-    },
-    {
-      "joinaggregate": [{"op": "max", "field": "Count", "as": "MaxCount"}],
       "groupby": ["properties.NAME"]
     }
   ],
@@ -33,11 +29,10 @@
     "color": {
       "field": "Count",
       "type": "quantitative",
-      "scale": {"type": "log", "domain": [1, "MaxCount"]}
+      "scale": {"type": "log"}
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Nationality", "type": "nominal", "title": "Nationality"},
       {"field": "Count", "type": "quantitative", "title": "Count"}
     ]
   }
