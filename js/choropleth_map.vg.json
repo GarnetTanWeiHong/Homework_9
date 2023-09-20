@@ -15,7 +15,7 @@
         "data": {
           "url": "https://raw.githubusercontent.com/GarnetTanWeiHong/Homework_9/main/data/pl_20-21.csv"
         },
-        "key": "Name",
+        "key": "Nationality",
         "fields": ["Nationality"]
       }
     },
