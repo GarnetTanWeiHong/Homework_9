@@ -22,6 +22,10 @@
     {
       "aggregate": [{"op": "count", "as": "Count"}],
       "groupby": ["properties.NAME", "Nationality"]
+    },
+    {
+      "joinaggregate": [{"op": "max", "field": "Count", "as": "MaxCount"}],
+      "groupby": ["properties.NAME"]
     }
   ],
   "mark": {"type": "geoshape"},
@@ -29,7 +33,7 @@
     "color": {
       "field": "Count",
       "type": "quantitative",
-      "scale": {"type": "linear"}
+      "scale": {"type": "log", "domain": [1, "MaxCount"]}
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
