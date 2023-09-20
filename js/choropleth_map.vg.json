@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "EPL Nationality",
+  "title": "EPL Nationality Count by Country",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
@@ -19,18 +19,22 @@
         "fields": ["Nationality"]
       }
     },
-    {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+    {
+      "aggregate": [{"op": "count", "as": "Count"}],
+      "groupby": ["properties.NAME", "Nationality"]
+    }
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Active Cases",
+      "field": "Count",
       "type": "quantitative",
       "scale": {"type": "log"}
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Active", "type": "quantitative"}
+      {"field": "Nationality", "type": "nominal", "title": "Nationality"},
+      {"field": "Count", "type": "quantitative", "title": "Count"}
     ]
   }
 }
