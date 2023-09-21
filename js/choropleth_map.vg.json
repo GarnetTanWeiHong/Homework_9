@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Count of Player in EPL 20-21 Season",
+  "title": "Number of Players in English Premier League in 20-21 Season",
   "width": 700,
   "height": 400,
   "background": "lightblue",
