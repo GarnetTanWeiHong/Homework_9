@@ -13,20 +13,13 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/GarnetTanWeiHong/Homework_9/main/data/pl_20-21.csv"
+          "url": "https://raw.githubusercontent.com/GarnetTanWeiHong/Homework_9/main/nationality_count.csv"
         },
         "key": "Nationality",
-        "fields": ["Nationality"]
+        "fields": ["Count of Nationality"]
       }
     },
-    {
-      "aggregate": [{"op": "count", "as": "Count"}],
-      "groupby": ["properties.NAME", "Nationality"]
-    },
-    {
-      "aggregate": [{"op": "sum", "field": "Count", "as": "TotalCount"}],
-      "groupby": ["properties.NAME"]
-    }
+    {"calculate" : "Count of Nationality", "as":"hello world"}
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
