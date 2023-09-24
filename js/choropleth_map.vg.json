@@ -21,7 +21,6 @@
       }
     },
     {"calculate": "max(datum['Count of Nationality'], 0)", "as": "Count"}
-    
   ],
   "layer": [
     {
@@ -30,7 +29,10 @@
         "color": {
           "field": "Count",
           "type": "quantitative",
-          "scale": {"type": "linear", "scheme": "turbo"},
+          "scale": {
+            "type": "threshold",
+            "domain": [5,10,20,50,100],
+            "range": ["#ffdf99","#fdbe85","#fd8d3c", "#e6550d", "#a63603","#8B0000"]},
           "title": "Count"
         },
         "tooltip": [
@@ -48,7 +50,7 @@
         "url": "https://raw.githubusercontent.com/GarnetTanWeiHong/Homework_9/main/js/ne_110m_admin_0_countries.topojson",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
-      "mark": {"type": "geoshape", "stroke": "lightgrey"}
+      "mark": {"type": "geoshape", "stroke": "grey", "opacity": "0.3"}
     }
   ],
   "config": {}
